@@ -1,0 +1,11 @@
+name: MiniGameCmdLib
+version: '1.0.0-SNAPSHOT'
+main: xyz.mlserver.miniGameCmdLib.MiniGameCmdLib
+api-version: '1.21'
+
+commands:
+    mgcl:
+        description: MiniGameCmdLib command
+        usage: /<command> <subcommand> [args]
+        aliases: [minigamecmdlib]
+        permission: minigamecmdlib.command
