@@ -59,6 +59,12 @@
             <id>sonatype</id>
             <url>https://oss.sonatype.org/content/groups/public/</url>
         </repository>
+
+        <!-- My API -->
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
     </repositories>
 
     <dependencies>
@@ -67,6 +73,13 @@
             <artifactId>paper-api</artifactId>
             <version>1.21-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
+        </dependency>
+
+        <!-- My API -->
+        <dependency>
+            <groupId>xyz.mlserver</groupId>
+            <artifactId>MinecraftUtil</artifactId>
+            <version>1.0.5</version>
         </dependency>
     </dependencies>
 </project>

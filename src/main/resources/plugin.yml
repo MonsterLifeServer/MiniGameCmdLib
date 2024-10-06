@@ -4,8 +4,10 @@ main: xyz.mlserver.miniGameCmdLib.MiniGameCmdLib
 api-version: '1.21'
 
 commands:
-    mgcl:
+    set_block:
         description: MiniGameCmdLib command
         usage: /<command> <subcommand> [args]
-        aliases: [minigamecmdlib]
+        aliases:
+            - sb
+            - set-block
         permission: minigamecmdlib.command
