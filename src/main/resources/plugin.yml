@@ -6,8 +6,25 @@ api-version: '1.21'
 commands:
     set_block:
         description: MiniGameCmdLib command
-        usage: /<command> <subcommand> [args]
         aliases:
             - sb
             - set-block
+        permission: minigamecmdlib.command
+    fill2:
+        description: MiniGameCmdLib command
+        aliases:
+            - f2
+            - fill-2
+        permission: minigamecmdlib.command
+    broadcast:
+        description: MiniGameCmdLib command
+        aliases:
+            - bc
+            - broadcast
+        permission: minigamecmdlib.command
+    glass_timer:
+        description: MiniGameCmdLib command
+        aliases:
+            - gt
+            - glass-timer
         permission: minigamecmdlib.command

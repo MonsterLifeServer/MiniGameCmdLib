@@ -5,7 +5,7 @@
 
 ## 使い方
 ### ガラスタイマー
-- `/glass_timer <秒数> <player=playerName|team=teamName>`で実行します。
+- `/glass_timer <秒数> <player=playerName|team=teamName|world=world>`で実行します。
 - 秒数は60，50，40，30，20, 10，6, 5，4，3，2，1のいずれかです。(他パターンも追加予定)
 - 60s〜10sはガラス板はそれぞれ10個，6s〜1sはそれぞれ1個生成されます。
 - ガラスは赤い板ガラスでホットバー右側に並びます。（その都合で六個まで）
