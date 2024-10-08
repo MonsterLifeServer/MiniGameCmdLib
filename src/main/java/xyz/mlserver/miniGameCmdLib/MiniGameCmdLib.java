@@ -19,6 +19,12 @@ public final class MiniGameCmdLib extends JavaPlugin {
         return commandWorld;
     }
 
+    private static JavaPlugin plugin;
+
+    public static JavaPlugin getPlugin() {
+        return plugin;
+    }
+
     @Override
     public void onEnable() {
         config = new CustomConfiguration(this, "config.yml");
@@ -30,6 +36,8 @@ public final class MiniGameCmdLib extends JavaPlugin {
         Objects.requireNonNull(getCommand("fill2")).setExecutor(new FillCmd());
         Objects.requireNonNull(getCommand("glass-timer")).setExecutor(new GlassTimerCmd());
         Objects.requireNonNull(getCommand("broadcast")).setExecutor(new BroadcastCmd());
+
+        plugin = this;
     }
 
     @Override
