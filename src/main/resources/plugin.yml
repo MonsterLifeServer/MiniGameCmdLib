@@ -3,6 +3,9 @@ version: '1.0.0-SNAPSHOT'
 main: xyz.mlserver.miniGameCmdLib.MiniGameCmdLib
 api-version: '1.21'
 
+softdepend:
+    - DecentHolograms
+
 commands:
     set_block:
         description: MiniGameCmdLib command
@@ -27,4 +30,16 @@ commands:
         aliases:
             - gt
             - glass-timer
+        permission: minigamecmdlib.command
+    hologram_timer:
+        description: MiniGameCmdLib command
+        aliases:
+            - ht
+            - hologram-timer
+        permission: minigamecmdlib.command
+    reset:
+        description: MiniGameCmdLib command
+        aliases:
+            - rs
+            - reset
         permission: minigamecmdlib.command

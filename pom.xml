@@ -60,6 +60,12 @@
             <url>https://oss.sonatype.org/content/groups/public/</url>
         </repository>
 
+        <!-- Other repositories, including jitpack -->
+        <repository>
+            <id>codemc</id>
+            <url>https://repo.codemc.io/repository/maven-public/</url>
+        </repository>
+
         <!-- My API -->
         <repository>
             <id>jitpack.io</id>
