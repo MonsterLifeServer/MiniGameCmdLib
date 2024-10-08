@@ -42,9 +42,7 @@ public class HoloTimer {
         for (BukkitTask task : getTasks().values()) if (!task.isCancelled()) task.cancel();
         getTasks().clear();
         for (Hologram hologram : getHolograms().values()) {
-            for (HologramPage page : hologram.getPages()) {
-                page.realignLines();
-            }
+            hologram.destroy();
         }
         getHolograms().clear();
     }

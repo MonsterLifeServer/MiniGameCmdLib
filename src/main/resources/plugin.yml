@@ -45,3 +45,9 @@ commands:
             - rs
             - reset
         permission: minigamecmdlib.command
+    progress_bar:
+        description: MiniGameCmdLib command
+        aliases:
+            - pgbar
+            - progressbar
+        permission: minigamecmdlib.command

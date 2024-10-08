@@ -10,6 +10,7 @@ import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import xyz.mlserver.miniGameCmdLib.utils.GlassTimer;
 import xyz.mlserver.miniGameCmdLib.utils.HoloTimer;
+import xyz.mlserver.miniGameCmdLib.utils.ProgressBar;
 
 public class ResetCmd implements CommandExecutor {
 
@@ -17,6 +18,7 @@ public class ResetCmd implements CommandExecutor {
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String cmdLabel, @NotNull String[] args) {
         GlassTimer.removeAllTasks();
         HoloTimer.removeAllTasks();
+        ProgressBar.removeAllHolograms();
         return true;
     }
 
