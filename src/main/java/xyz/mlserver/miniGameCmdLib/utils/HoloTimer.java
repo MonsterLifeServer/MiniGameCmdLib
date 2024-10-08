@@ -2,9 +2,11 @@ package xyz.mlserver.miniGameCmdLib.utils;
 
 import eu.decentsoftware.holograms.api.DHAPI;
 import eu.decentsoftware.holograms.api.holograms.Hologram;
+import eu.decentsoftware.holograms.api.holograms.HologramPage;
 import org.bukkit.Location;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
+import xyz.mlserver.java.Log;
 import xyz.mlserver.miniGameCmdLib.MiniGameCmdLib;
 
 import java.util.HashMap;
@@ -39,7 +41,11 @@ public class HoloTimer {
     public static void removeAllTasks() {
         for (BukkitTask task : getTasks().values()) if (!task.isCancelled()) task.cancel();
         getTasks().clear();
-        for (Hologram hologram : getHolograms().values()) hologram.unregister();
+        for (Hologram hologram : getHolograms().values()) {
+            for (HologramPage page : hologram.getPages()) {
+                page.realignLines();
+            }
+        }
         getHolograms().clear();
     }
 
@@ -48,7 +54,7 @@ public class HoloTimer {
         if (task != null && !task.isCancelled()) task.cancel();
         getTasks().remove(uuid);
         Hologram hologram = getHolograms().get(uuid);
-        if (hologram != null) hologram.unregister();
+        if (hologram != null) hologram.destroy();
         getHolograms().remove(uuid);
     }
 
@@ -58,33 +64,33 @@ public class HoloTimer {
             return null;
 
         // 初期ホログラムのラインを定義
-        String line = "&7||||||||||||||||||||||||||||||";
+        String line = "||||||||||||||||||||||||||||||";
         Hologram hologram = DHAPI.createHologram(uuid.toString(), loc, false);
-        DHAPI.addHologramLine(hologram, line);
+        DHAPI.addHologramLine(hologram, "&7" + line);
+
+        int countFinal = count * 20;
 
         BukkitTask task = new BukkitRunnable() {
-            int countTemp = count;
+            int countTemp = countFinal;
 
             @Override
             public void run() {
                 if (countTemp == 0) {
                     cancel();
+                    DHAPI.setHologramLine(hologram, 0, "&a" + line);
                     return;
                 }
 
-                // 左から緑色に変化させる部分の長さを決定
-                int greenLength = (int) ((count - countTemp) * (line.length() / (double) count));
+                int greenLength = (int) ((countFinal - countTemp) * (line.length() / (double) countFinal));
 
-                // 緑色と灰色のバーを生成
                 String greenPart = "&a" + line.substring(0, greenLength);
                 String grayPart = "&7" + line.substring(greenLength);
 
-                // ホログラムのラインを更新
                 DHAPI.setHologramLine(hologram, 0, greenPart + grayPart);
 
                 countTemp--;
             }
-        }.runTaskTimer(MiniGameCmdLib.getPlugin(), 0, 20);
+        }.runTaskTimer(MiniGameCmdLib.getPlugin(), 0, 1);
         return new HashMap<BukkitTask, Hologram>() {{
             put(task, hologram);
         }};

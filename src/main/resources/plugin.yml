@@ -36,6 +36,8 @@ commands:
         aliases:
             - ht
             - hologram-timer
+            - holo-timer
+            - holo_timer
         permission: minigamecmdlib.command
     reset:
         description: MiniGameCmdLib command

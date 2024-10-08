@@ -34,8 +34,9 @@ public final class MiniGameCmdLib extends JavaPlugin {
 
         Objects.requireNonNull(getCommand("set_block")).setExecutor(new SetBlockCmd());
         Objects.requireNonNull(getCommand("fill2")).setExecutor(new FillCmd());
-        Objects.requireNonNull(getCommand("glass-timer")).setExecutor(new GlassTimerCmd());
+        Objects.requireNonNull(getCommand("glass_timer")).setExecutor(new GlassTimerCmd());
         Objects.requireNonNull(getCommand("broadcast")).setExecutor(new BroadcastCmd());
+        Objects.requireNonNull(getCommand("hologram_timer")).setExecutor(new xyz.mlserver.miniGameCmdLib.cmds.HologramTimerCmd());
 
         plugin = this;
     }
