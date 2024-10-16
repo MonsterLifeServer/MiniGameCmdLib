@@ -2,6 +2,7 @@ package xyz.mlserver.miniGameCmdLib.utils;
 
 import it.unimi.dsi.fastutil.Hash;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -81,6 +82,8 @@ public class GlassTimer {
                 if (tenCount == 0) {
                     for (Player player : players) {
                         player.getInventory().setItem(slot, new ItemStack(Material.GREEN_STAINED_GLASS_PANE, stackCount));
+                        if (slot != 8) player.playSound(player.getLocation(), Sound.BLOCK_LEVER_CLICK, 1, 1);
+                        else player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1, 1);
                     }
                     slot++;
                 }
